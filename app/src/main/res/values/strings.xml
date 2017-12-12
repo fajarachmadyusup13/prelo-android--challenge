@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PrelloAndroidChallenge</string>
+    <string name="hint_username_email">username/email</string>
+    <string name="hint_password">password</string>
+    <string name="title_login">Login</string>
+    <string name="saved_token">saved_token</string>
+    <string name="saved_token_default">ini tokennya</string>
+</resources>
