@@ -77,11 +77,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void requestLogin() {
-        mApiService.loginRequest("applicant", "password")
+        mApiService.loginRequest(usernameEditText.getText().toString(), passwordEditText.getText().toString())
                 .enqueue(new Callback<User>() {
                     @Override
                     public void onResponse(Call<User> call, Response<User> response) {
-                        if (response.isSuccessful()){
+                        if (response.isSuccessful() && response.code()==200){
 
 
                             User user = response.body();
@@ -98,6 +98,8 @@ public class MainActivity extends AppCompatActivity {
                             Intent intent = new Intent(mContext, LovelistActivity.class);
                             startActivity(intent);
                             finish();
+                        }else {
+                            Toast.makeText(mContext, "Your username/password is wrong", Toast.LENGTH_SHORT).show();
                         }
                     }
 
