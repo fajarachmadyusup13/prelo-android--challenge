@@ -1,5 +1,5 @@
 
-package com.boo.ghost.prelloandroidchallenge.model;
+package com.boo.ghost.prelloandroidchallenge.model.user;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

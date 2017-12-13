@@ -1,5 +1,7 @@
 package com.boo.ghost.prelloandroidchallenge.apihelper;
 
+import android.content.Context;
+
 /**
  * Created by ghost on 12/12/17.
  */

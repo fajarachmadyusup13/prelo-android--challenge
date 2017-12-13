@@ -1,6 +1,18 @@
 package com.boo.ghost.prelloandroidchallenge.apihelper;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
+import com.boo.ghost.prelloandroidchallenge.MainActivity;
+import com.boo.ghost.prelloandroidchallenge.R;
+
+import java.io.IOException;
+import java.util.prefs.Preferences;
+
+import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
