@@ -1,5 +1,6 @@
 package com.boo.ghost.prelloandroidchallenge.adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import com.boo.ghost.prelloandroidchallenge.R;
 import com.boo.ghost.prelloandroidchallenge.model.product.Datum;
 import com.boo.ghost.prelloandroidchallenge.model.product.Product;
 import com.boo.ghost.prelloandroidchallenge.model.user.Data;
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -22,6 +24,7 @@ import java.util.List;
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
 
     private List<Datum> data;
+    private Context context;
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
         ImageView img_prod;
@@ -38,9 +41,9 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
         }
     }
 
-    public ListAdapter(List<Datum> data) {
+    public ListAdapter(List<Datum> data, Context context) {
         this.data = data;
-        Log.d("WAKAKAKA", data.get(0).getName());
+        this.context = context;
     }
 
     @Override
@@ -55,6 +58,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(ListAdapter.ViewHolder holder, int i) {
+        Glide.with(context).load(data.get(i).getDisplayPicts().get(0)).into(holder.img_prod);
         holder.tv_prod_name.setText(data.get(i).getName()+"");
         holder.tv_prod_price.setText(data.get(i).getPrice()+"");
     }

@@ -5,4 +5,13 @@
     <string name="title_login">Login</string>
     <string name="saved_token">saved_token</string>
     <string name="saved_token_default">ini tokennya</string>
+    <string name="saved_fullname">saved_fullname</string>
+    <string name="saved_fullname_default">ini fullnamenya</string>
+    <string name="saved_username">saved_username</string>
+    <string name="saved_username_default">ini usernamenya</string>
+    <string name="saved_email">saved_email</string>
+    <string name="saved_email_default">ini emailnya</string>
+    <string name="saved_pict">saved_pict</string>
+    <string name="saved_pict_default">ini pictnya</string>
+    <string name="saved_login">saved_login</string>
 </resources>
