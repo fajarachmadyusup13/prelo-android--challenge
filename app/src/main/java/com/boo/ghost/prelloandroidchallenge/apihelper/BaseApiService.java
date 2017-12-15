@@ -1,5 +1,6 @@
 package com.boo.ghost.prelloandroidchallenge.apihelper;
 
+import com.boo.ghost.prelloandroidchallenge.model.detail.Data;
 import com.boo.ghost.prelloandroidchallenge.model.product.Datum;
 import com.boo.ghost.prelloandroidchallenge.model.product.Product;
 import com.boo.ghost.prelloandroidchallenge.model.user.User;
@@ -26,5 +27,9 @@ public interface BaseApiService {
 
     @GET("me/lovelist")
     Call<Product> getLoveList(@Header("Authorization") String token);
+
+
+    @GET("product/{id_prod}")
+    Call<Data> getProductDetail(@Header("Authorization") String token, @Path("id_prod") String id_prod);
 
 }

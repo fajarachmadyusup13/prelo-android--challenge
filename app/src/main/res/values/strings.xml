@@ -14,4 +14,5 @@
     <string name="saved_pict">saved_pict</string>
     <string name="saved_pict_default">ini pictnya</string>
     <string name="saved_login">saved_login</string>
+    <string name="id_product">id_product</string>
 </resources>
