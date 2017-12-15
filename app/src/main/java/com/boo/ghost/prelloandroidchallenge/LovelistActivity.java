@@ -40,6 +40,7 @@ public class LovelistActivity extends AppCompatActivity {
     private BaseApiService mApiService;
     private Context context;
     SharedPreferences preferences;
+    SharedPreferences.Editor editor;
     String token;
     String username;
     String fullname;
@@ -55,6 +56,7 @@ public class LovelistActivity extends AppCompatActivity {
         context = this;
 
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        editor = preferences.edit();
         token = preferences.getString(getString(R.string.saved_token), getString(R.string.saved_token_default));
         fullname = preferences.getString(getString(R.string.saved_fullname), getString(R.string.saved_fullname_default));
         username = preferences.getString(getString(R.string.saved_username), getString(R.string.saved_username_default));

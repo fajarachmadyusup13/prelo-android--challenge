@@ -20,7 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LovelistActivity"></activity>
+        <activity android:name=".LovelistActivity" />
+        <activity android:name=".DetailActivity"></activity>
     </application>
 
 </manifest>
