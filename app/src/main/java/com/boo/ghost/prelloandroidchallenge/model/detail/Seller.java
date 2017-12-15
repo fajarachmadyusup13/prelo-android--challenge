@@ -19,12 +19,12 @@ public class Seller {
     @SerializedName("fullname")
     @Expose
     private String fullname;
+    @SerializedName("achievements")
+    @Expose
+    private List<Achievement> achievements = null;
     @SerializedName("shipping_preferences")
     @Expose
     private List<String> shippingPreferences = null;
-    @SerializedName("achievements")
-    @Expose
-    private List<Object> achievements = null;
     @SerializedName("pict")
     @Expose
     private String pict;
@@ -73,20 +73,20 @@ public class Seller {
         this.fullname = fullname;
     }
 
+    public List<Achievement> getAchievements() {
+        return achievements;
+    }
+
+    public void setAchievements(List<Achievement> achievements) {
+        this.achievements = achievements;
+    }
+
     public List<String> getShippingPreferences() {
         return shippingPreferences;
     }
 
     public void setShippingPreferences(List<String> shippingPreferences) {
         this.shippingPreferences = shippingPreferences;
-    }
-
-    public List<Object> getAchievements() {
-        return achievements;
-    }
-
-    public void setAchievements(List<Object> achievements) {
-        this.achievements = achievements;
     }
 
     public String getPict() {

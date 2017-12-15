@@ -6,20 +6,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class ShareStatus {
 
-    @SerializedName("TWITTER")
-    @Expose
-    private Boolean tWITTER;
     @SerializedName("shared")
     @Expose
     private Shared shared;
-
-    public Boolean getTWITTER() {
-        return tWITTER;
-    }
-
-    public void setTWITTER(Boolean tWITTER) {
-        this.tWITTER = tWITTER;
-    }
 
     public Shared getShared() {
         return shared;

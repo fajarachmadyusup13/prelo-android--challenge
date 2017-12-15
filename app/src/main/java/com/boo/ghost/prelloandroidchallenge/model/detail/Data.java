@@ -88,9 +88,6 @@ public class Data {
     @SerializedName("name_lowercase")
     @Expose
     private String nameLowercase;
-    @SerializedName("sold_to")
-    @Expose
-    private Object soldTo;
     @SerializedName("history")
     @Expose
     private List<Object> history = null;
@@ -121,12 +118,9 @@ public class Data {
     @SerializedName("promo_categories")
     @Expose
     private List<Object> promoCategories = null;
-    @SerializedName("share_status")
-    @Expose
-    private ShareStatus shareStatus;
     @SerializedName("segments")
     @Expose
-    private List<String> segments = null;
+    private List<Object> segments = null;
     @SerializedName("free_ongkir_area")
     @Expose
     private List<Object> freeOngkirArea = null;
@@ -175,6 +169,9 @@ public class Data {
     @SerializedName("original_picts")
     @Expose
     private List<String> originalPicts = null;
+    @SerializedName("share_status")
+    @Expose
+    private ShareStatus shareStatus;
     @SerializedName("category_breadcrumbs")
     @Expose
     private List<CategoryBreadcrumb> categoryBreadcrumbs = null;
@@ -398,14 +395,6 @@ public class Data {
         this.nameLowercase = nameLowercase;
     }
 
-    public Object getSoldTo() {
-        return soldTo;
-    }
-
-    public void setSoldTo(Object soldTo) {
-        this.soldTo = soldTo;
-    }
-
     public List<Object> getHistory() {
         return history;
     }
@@ -486,19 +475,11 @@ public class Data {
         this.promoCategories = promoCategories;
     }
 
-    public ShareStatus getShareStatus() {
-        return shareStatus;
-    }
-
-    public void setShareStatus(ShareStatus shareStatus) {
-        this.shareStatus = shareStatus;
-    }
-
-    public List<String> getSegments() {
+    public List<Object> getSegments() {
         return segments;
     }
 
-    public void setSegments(List<String> segments) {
+    public void setSegments(List<Object> segments) {
         this.segments = segments;
     }
 
@@ -628,6 +609,14 @@ public class Data {
 
     public void setOriginalPicts(List<String> originalPicts) {
         this.originalPicts = originalPicts;
+    }
+
+    public ShareStatus getShareStatus() {
+        return shareStatus;
+    }
+
+    public void setShareStatus(ShareStatus shareStatus) {
+        this.shareStatus = shareStatus;
     }
 
     public List<CategoryBreadcrumb> getCategoryBreadcrumbs() {

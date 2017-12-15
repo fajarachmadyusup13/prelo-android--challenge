@@ -1,7 +1,6 @@
 package com.boo.ghost.prelloandroidchallenge.apihelper;
 
-import com.boo.ghost.prelloandroidchallenge.model.detail.Data;
-import com.boo.ghost.prelloandroidchallenge.model.product.Datum;
+import com.boo.ghost.prelloandroidchallenge.model.detail.Detail;
 import com.boo.ghost.prelloandroidchallenge.model.product.Product;
 import com.boo.ghost.prelloandroidchallenge.model.user.User;
 
@@ -10,7 +9,6 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
-import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
@@ -30,6 +28,6 @@ public interface BaseApiService {
 
 
     @GET("product/{id_prod}")
-    Call<Data> getProductDetail(@Header("Authorization") String token, @Path("id_prod") String id_prod);
+    Call<Detail> getProductDetail(@Header("Authorization") String token, @Path("id_prod") String id_prod);
 
 }

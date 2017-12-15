@@ -1,5 +1,6 @@
 package com.boo.ghost.prelloandroidchallenge;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -11,9 +12,10 @@ import android.widget.TextView;
 
 import com.boo.ghost.prelloandroidchallenge.apihelper.BaseApiService;
 import com.boo.ghost.prelloandroidchallenge.apihelper.UtilsApi;
-import com.boo.ghost.prelloandroidchallenge.model.detail.Data;
-import com.boo.ghost.prelloandroidchallenge.model.product.Product;
+import com.boo.ghost.prelloandroidchallenge.model.detail.Detail;
+import com.bumptech.glide.Glide;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -24,7 +26,7 @@ public class DetailActivity extends AppCompatActivity {
     ImageView img_product;
     TextView tv_name;
     TextView tv_price;
-    ImageView img_seller;
+    CircleImageView img_seller;
     TextView tv_seller_name;
     TextView tv_seller_email;
     BaseApiService mApiService;
@@ -32,6 +34,7 @@ public class DetailActivity extends AppCompatActivity {
     SharedPreferences.Editor editor;
     String token;
     String id_product;
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +42,12 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
 
         initComponent();
+        requestDetail();
     }
 
 
     private void initComponent(){
+        context = this;
         btn_beli = findViewById(R.id.btn_beli);
         img_product = findViewById(R.id.img_product);
         tv_name = findViewById(R.id.tv_name);
@@ -58,14 +63,19 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     public void requestDetail(){
-        mApiService.getProductDetail("Token "+ token, id_product).enqueue(new Callback<Data>() {
+        mApiService.getProductDetail("Token "+token, id_product).enqueue(new Callback<Detail>() {
             @Override
-            public void onResponse(Call<Data> call, Response<Data> response) {
-                Log.d("INI NAMA", response.body().getName());
+            public void onResponse(Call<Detail> call, Response<Detail> response) {
+                Glide.with(context).load(response.body().getData().getDisplayPicts().get(0)).into(img_product);
+                Glide.with(context).load(response.body().getData().getSeller().getPict()).into(img_seller);
+                tv_seller_name.setText(response.body().getData().getSeller().getFullname());
+                tv_seller_email.setText(response.body().getData().getSeller().getEmail());
+                tv_name.setText(response.body().getData().getName());
+                tv_price.setText("Rp." + response.body().getData().getPrice().toString());
             }
 
             @Override
-            public void onFailure(Call<Data> call, Throwable t) {
+            public void onFailure(Call<Detail> call, Throwable t) {
 
             }
         });
